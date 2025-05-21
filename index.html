@@ -4,684 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DigiHealth - Transforming Healthcare Digitally</title>
-    <style>
-        :root {
-            --primary: #1a73e8;
-            --primary-dark: #0d47a1;
-            --secondary: #34a853;
-            --accent: #5f6368;
-            --light: #f8f9fa;
-            --dark: #202124;
-            --white: #ffffff;
-            --shadow: 0 4px 12px rgba(0,0,0,0.08);
-            --border-radius: 8px;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-        }
-        
-        body {
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            font-weight: 400;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            letter-spacing: -0.5px;
-        }
-        
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.5px;
-        }
-        
-        h3 {
-            font-size: 1.75rem;
-        }
-        
-        p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            color: #4a4a4a;
-        }
-        
-        a {
-            text-decoration: none;
-            color: var(--primary);
-            transition: all 0.3s ease;
-        }
-        
-        a:hover {
-            color: var(--primary-dark);
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
-        }
-        
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.4);
-        }
-        
-        .btn-secondary {
-            background-color: var(--secondary);
-            box-shadow: 0 2px 8px rgba(52, 168, 83, 0.3);
-        }
-        
-        .btn-secondary:hover {
-            background-color: #2d8e47;
-            box-shadow: 0 4px 12px rgba(52, 168, 83, 0.4);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            box-shadow: none;
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
-        }
-        
-        /* Header */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo span {
-            color: var(--secondary);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            color: var(--dark);
-            font-weight: 500;
-            position: relative;
-            padding: 5px 0;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--primary);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .nav-buttons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 180px 0 120px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e8eaed 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .hero-text {
-            flex: 1;
-            max-width: 600px;
-        }
-        
-        .hero-text h1 {
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-        
-        .hero-text p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: var(--accent);
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 2rem;
-        }
-        
-        .hero-image {
-            flex: 1;
-            text-align: right;
-        }
-        
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 120px 0;
-            background-color: white;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-header p {
-            max-width: 700px;
-            margin: 0 auto;
-            color: var(--accent);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        .feature-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            padding: 35px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .feature-icon {
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 15px;
-        }
-        
-        /* Solutions Section */
-        .solutions {
-            padding: 120px 0;
-            background-color: var(--light);
-        }
-        
-        .solutions-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .tab-button {
-            padding: 15px 30px;
-            background: none;
-            border: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--accent);
-            cursor: pointer;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .tab-button.active {
-            color: var(--primary);
-        }
-        
-        .tab-button.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--primary);
-        }
-        
-        .solutions-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-        
-        .solutions-image {
-            flex: 1;
-        }
-        
-        .solutions-image img {
-            max-width: 100%;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-        
-        .solutions-text {
-            flex: 1;
-        }
-        
-        .solutions-text h3 {
-            margin-bottom: 20px;
-        }
-        
-        .solutions-list {
-            list-style: none;
-        }
-        
-        .solutions-list li {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .solutions-list li i {
-            color: var(--secondary);
-            margin-right: 15px;
-            margin-top: 5px;
-            font-size: 18px;
-        }
-        
-        /* About Us Section */
-        .about-us {
-            padding: 120px 0;
-            background-color: white;
-        }
-        
-        .about-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-        
-        .team-member {
-            text-align: center;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            transition: all 0.3s ease;
-            background-color: white;
-            box-shadow: var(--shadow);
-        }
-        
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .member-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            overflow: hidden;
-            border: 5px solid rgba(26, 115, 232, 0.1);
-        }
-        
-        .member-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .member-info h3 {
-            margin-bottom: 5px;
-        }
-        
-        .member-role {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 15px;
-            display: block;
-        }
-        
-        .member-bio {
-            margin-bottom: 20px;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            color: var(--accent);
-            font-size: 18px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary);
-        }
-        
-        /* Personas Section */
-        .personas {
-            padding: 120px 0;
-            background-color: var(--light);
-        }
-        
-        .personas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .persona-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-        
-        .persona-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .persona-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .persona-content {
-            padding: 30px;
-        }
-        
-        .persona-content h3 {
-            margin-bottom: 10px;
-        }
-        
-        .persona-content p {
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-        
-        .persona-goals {
-            margin-top: 15px;
-        }
-        
-        .persona-goals h4 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-        
-        .persona-goals ul {
-            list-style: none;
-        }
-        
-        .persona-goals li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        .persona-goals li::before {
-            content: '•';
-            color: var(--secondary);
-            position: absolute;
-            left: 0;
-        }
-        
-        /* CTA Section */
-        .cta {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            text-align: center;
-        }
-        
-        .cta h2 {
-            margin-bottom: 20px;
-        }
-        
-        .cta p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        
-        .btn-white {
-            background-color: white;
-            color: var(--primary);
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
-        }
-        
-        .btn-white:hover {
-            background-color: #f1f1f1;
-            color: var(--primary-dark);
-            box-shadow: 0 6px 15px rgba(255, 255, 255, 0.4);
-        }
-        
-        .btn-outline-white {
-            border: 2px solid white;
-            background-color: transparent;
-            color: white;
-        }
-        
-        .btn-outline-white:hover {
-            background-color: white;
-            color: var(--primary);
-        }
-        
-        /* Footer */
-        footer {
-            padding: 80px 0 30px;
-            background-color: var(--dark);
-            color: white;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .footer-column h3 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #aaa;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #444;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        
-        .footer-social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .footer-social-links a {
-            color: #aaa;
-            font-size: 1.2rem;
-        }
-        
-        .footer-social-links a:hover {
-            color: white;
-        }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-            
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-text {
-                margin-bottom: 40px;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            .solutions-content {
-                flex-direction: column;
-            }
-            
-            
-.solutions-image {
-order: 1;
-margin-bottom: 30px;
-}
-
-            
-            .solutions-text {
-                order: 2;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links, .nav-buttons {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .features-grid, .personas-grid, .team-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container nav-container">
             <a href="#" class="logo">
-                <i class="fas fa-heartbeat" style="margin-right: 10px; color: var(--secondary);"></i>
+                <!-- <i class="fas fa-heartbeat" style="margin-right: 10px; color: var(--secondary);"></i> -->
+                 <img style="width: 7rem;" src="logodigi-removebg-preview.png" alt="">
                 Digi<span>Health</span>
             </a>
             <nav class="nav-links">
@@ -701,7 +33,7 @@ margin-bottom: 30px;
                 <h1>Transforming Healthcare with Digital Solutions</h1>
                 <p>DigiHealth provides seamless digital health records for doctors, clinics, and patients powered by AI for better healthcare outcomes.</p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn">Get Started</a>
+                    <a href="#" class="btn"><i class="fas fa-rocket"></i> Get Started</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -775,7 +107,6 @@ margin-bottom: 30px;
                 <button class="tab-button active" data-tab="doctors-tab">For Doctors & Clinics</button>
                 <button class="tab-button" data-tab="patients-tab">For Patients</button>
             </div>
-            
             <!-- Doctors Tab Content -->
             <div id="doctors-tab" class="solutions-content tab-content">
                 <div class="solutions-image">
@@ -823,7 +154,6 @@ margin-bottom: 30px;
                     </ul>
                 </div>
             </div>
-            
             <!-- Patients Tab Content -->
             <div id="patients-tab" class="solutions-content tab-content">
                 <div class="solutions-image">
@@ -873,7 +203,6 @@ margin-bottom: 30px;
             </div>
         </div>
     </section>
-    
 
     <!-- About Us Section -->
     <section class="about-us" id="about">
@@ -994,8 +323,8 @@ margin-bottom: 30px;
             <h2>Ready to Transform Healthcare Management?</h2>
             <p>Join thousands of healthcare providers and patients who are already benefiting from DigiHealth's innovative platform.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-white">Register Your Clinic</a>
-                <a href="#" class="btn btn-outline-white">Create Patient Account</a>
+                <a href="#" class="btn btn-white"><i class="fas fa-user-md"></i> Register Your Clinic</a>
+                <a href="#" class="btn btn-outline-white"><i class="fas fa-user-plus"></i> Create Patient Account</a>
             </div>
         </div>
     </section>
@@ -1045,8 +374,8 @@ margin-bottom: 30px;
                     <h3>Contact</h3>
                     <ul class="footer-links">
                         <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@digihealth.com</li>
-                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +91 123 456 7890</li>
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Bangalore, India</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +91 72177 86772</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Mumbai, India</li>
                     </ul>
                 </div>
             </div>
@@ -1058,41 +387,27 @@ margin-bottom: 30px;
 
     <script>
         // Tab functionality
-const tabButtons = document.querySelectorAll('.tab-button');
-const tabContents = document.querySelectorAll('.tab-content');
-
-// Set default tab
-document.getElementById('doctors-tab').style.display = 'flex';
-document.getElementById('patients-tab').style.display = 'none';
-
-tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Remove active class from all buttons
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Add active class to clicked button
-        button.classList.add('active');
-        
-        // Hide all tab contents
-        tabContents.forEach(content => {
-            content.style.display = 'none';
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        document.getElementById('doctors-tab').style.display = 'flex';
+        document.getElementById('patients-tab').style.display = 'none';
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                tabContents.forEach(content => {
+                    content.style.display = 'none';
+                });
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).style.display = 'flex';
+            });
         });
-        
-        // Show the selected tab content
-        const tabId = button.getAttribute('data-tab');
-        document.getElementById(tabId).style.display = 'flex';
-    });
-});
-
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
